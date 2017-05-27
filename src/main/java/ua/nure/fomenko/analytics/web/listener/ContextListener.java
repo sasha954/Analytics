@@ -60,11 +60,13 @@ public class ContextListener implements ServletContextListener{
         WebSiteService webSiteService = new WebSiteServiceImpl(webSiteDao, transactionManager);
         LinksService linksService = new LinksServiceImpl(linksDao, transactionManager);
         VisitersService visitersService = new VisitersServiceImpl(visitersDao, transactionManager);
+        KeyConverterService keyConverterService = new DefaultKeyConverterServiceImpl();
 
         servletContext.setAttribute(Params.USER_SERVICE, userService);
         servletContext.setAttribute(Params.WEB_SITE_SERVICE, webSiteService);
         servletContext.setAttribute(Params.LINKS_SERVICE, linksService);
         servletContext.setAttribute(Params.VISITERS_SERVICE, visitersService);
+        servletContext.setAttribute(Params.KEY_CONVERTER_SERVICE, keyConverterService);
     }
 
     @Override

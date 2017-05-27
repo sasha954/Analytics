@@ -8,6 +8,7 @@
                 <tr>
                     <td><c:out value="${link.url}"/></td>
                     <td><c:out value="${link.name}"/></td>
+                    <td><c:out value="?lid=${link.paramForUrlOnWebSite}"/></td>
                     <td><c:out value="${link.countVisiters}"/></td>
                 </tr>
             </c:forEach>

@@ -10,6 +10,8 @@ import ua.nure.fomenko.analytics.dao.WebSiteDao;
 import ua.nure.fomenko.analytics.db.entity.Links;
 import ua.nure.fomenko.analytics.db.entity.WebSite;
 import ua.nure.fomenko.analytics.exception.DBException;
+import ua.nure.fomenko.analytics.services.DefaultKeyConverterServiceImpl;
+import ua.nure.fomenko.analytics.services.KeyConverterService;
 import ua.nure.fomenko.analytics.transaction.ThreadLockHandler;
 
 import java.sql.*;
@@ -149,6 +151,7 @@ public class LinksDaoImpl implements LinksDao {
     private Links parseLinks(ResultSet resultSet) throws SQLException {
         Links link = new Links();
         WebSiteDao webSiteDao = new WebSiteDaoImpl();
+        link.setId(resultSet.getInt(Params.ID));
         link.setUrl(resultSet.getString(Params.LINK_URL));
         link.setName(resultSet.getString(Params.LINK_NAME));
         link.setWebSite(webSiteDao.get(resultSet.getInt(Params.LINK_WEB_SITE_ID)));
@@ -158,9 +161,11 @@ public class LinksDaoImpl implements LinksDao {
     private List<Links> getLinkList(ResultSet resultSet) throws SQLException{
         List<Links> list = new ArrayList<>();
         Links link = new Links();
+        KeyConverterService keyConverterService = new DefaultKeyConverterServiceImpl();
         while (resultSet.next()) {
            link = parseLinks(resultSet);
            link.setCountVisiters(resultSet.getLong("countVisiters"));
+           link.setParamForUrlOnWebSite(keyConverterService.idToKey(link.getId()));
            list.add(link);
         }
         resultSet.close();

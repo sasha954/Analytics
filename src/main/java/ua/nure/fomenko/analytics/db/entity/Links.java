@@ -6,8 +6,17 @@ package ua.nure.fomenko.analytics.db.entity;
 public class Links extends Entity {
     private String url;
     private String name;
+    private String paramForUrlOnWebSite;
     private WebSite webSite;
     private long countVisiters;
+
+    public String getParamForUrlOnWebSite() {
+        return paramForUrlOnWebSite;
+    }
+
+    public void setParamForUrlOnWebSite(String paramForUrlOnWebSite) {
+        this.paramForUrlOnWebSite = paramForUrlOnWebSite;
+    }
 
     public long getCountVisiters() {
         return countVisiters;

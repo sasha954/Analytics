@@ -43,6 +43,7 @@ public class Params {
     public static final String WEB_SITE_SERVICE = "webSiteService";
     public static final String LINKS_SERVICE = "linksService";
     public static final String VISITERS_SERVICE = "visitersService";
+    public static final String KEY_CONVERTER_SERVICE = "keyConverterService";
 
 
     // User fields
