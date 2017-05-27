@@ -1,0 +1,17 @@
+*,body,html{
+    margin: 0;
+    padding:0;
+}
+.popUpLogin{
+    width: 270px;
+    height: 150px;
+    position: relative;
+}
+.form-btn{
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
