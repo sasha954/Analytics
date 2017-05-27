@@ -157,8 +157,11 @@ public class LinksDaoImpl implements LinksDao {
 
     private List<Links> getLinkList(ResultSet resultSet) throws SQLException{
         List<Links> list = new ArrayList<>();
+        Links link = new Links();
         while (resultSet.next()) {
-            list.add(parseLinks(resultSet));
+           link = parseLinks(resultSet);
+           link.setCountVisiters(resultSet.getLong("countVisiters"));
+           list.add(link);
         }
         resultSet.close();
         return list;

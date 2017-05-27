@@ -7,6 +7,15 @@ public class Links extends Entity {
     private String url;
     private String name;
     private WebSite webSite;
+    private long countVisiters;
+
+    public long getCountVisiters() {
+        return countVisiters;
+    }
+
+    public void setCountVisiters(long countVisiters) {
+        this.countVisiters = countVisiters;
+    }
 
     public String getUrl() {
         return url;

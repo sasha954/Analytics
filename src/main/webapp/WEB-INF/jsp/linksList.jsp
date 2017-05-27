@@ -10,6 +10,9 @@
 </head>
 <body>
     <my:siteListSidebar/>
+    <div class="setting-links">
+        <a href="#" class="btn btn-default"><fmt:message key="linkList.setting"/></a>
+    </div>
     <my:linkList/>
     <my:addLinkForm/>
 </body>

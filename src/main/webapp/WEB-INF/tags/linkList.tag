@@ -8,7 +8,7 @@
                 <tr>
                     <td><c:out value="${link.url}"/></td>
                     <td><c:out value="${link.name}"/></td>
-                    <td>0</td>
+                    <td><c:out value="${link.countVisiters}"/></td>
                 </tr>
             </c:forEach>
         </c:if>

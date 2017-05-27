@@ -37,7 +37,11 @@ public class SQLQueries {
 
     public static final String LINK_GET_BY_URL = "SELECT * FROM links WHERE url=?";
 
-    public static final String LINKS_GET_BY_WEBSITE = "SELECT * FROM links WHERE WebSites_id=?";
+    //public static final String LINKS_GET_BY_WEBSITE = "SELECT * FROM links WHERE WebSites_id=?";
+
+    public static final String LINKS_GET_BY_WEBSITE = "select l.*, count(s.links_id) as countVisiters from links as l left outer join statistic as s on l.id=s.links_id WHERE l.WebSites_id=? group by l.url order by l.id asc";
+
+
 
     public static final String LINK_CREATE_NEW = "INSERT INTO links (url, name, WebSites_id) VALUES(?,?,?)";
 
@@ -57,6 +61,8 @@ public class SQLQueries {
     public static final String STATISTIC_GET_BY_ID = "SELECT * FROM statistic WHERE id=?";
 
     public static final String STATISTIC_CREATE_NEW = "INSERT INTO statistic(visiters_id, links_id) VALUES(?,?)";
+
+    public static final String STATISTIC_GET_BY_LINK_ID = "SELECT * FROM statistic WHERE links_id=?";
 
     private SQLQueries() {
     }
