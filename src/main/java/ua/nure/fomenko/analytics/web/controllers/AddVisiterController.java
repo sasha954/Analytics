@@ -1,11 +1,6 @@
 package ua.nure.fomenko.analytics.web.controllers;
 
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import ua.nure.fomenko.analytics.constants.Params;
-import ua.nure.fomenko.analytics.services.VisitersService;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,29 +12,24 @@ import java.io.IOException;
 /**
  * Created by fomenko on 05.04.2017.
  */
+
 @WebServlet(name = "AddVisiterController", urlPatterns = "/addVisiter.d")
 public class AddVisiterController extends HttpServlet {
 
-    private HttpClient httpClient;
-    private HttpPost httpPost;
-    private VisitersService visitersService;
-    private HttpResponse response;
-    private String requestTo2ip = "http://api.2ip.ua/geo.json?ip=";
+   private static final Logger LOG = Logger.getLogger(AddVisiterController.class);
 
     @Override
     public void init() throws ServletException {
-        httpClient = new DefaultHttpClient();
-        visitersService = (VisitersService)getServletContext().getAttribute(Params.VISITERS_SERVICE);
-        httpPost = new HttpPost(requestTo2ip);
-        try {
-            response = httpClient.execute(httpPost);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String ip = request.getParameter("ip");
+        int linkId = Integer.parseInt(request.getParameter("linkId")),
+                siteId = Integer.parseInt(request.getParameter("siteId"));
 
+        LOG.debug("ip = " + ip + ", link id = " + linkId + ", site id = " + siteId);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
