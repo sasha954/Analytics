@@ -35,6 +35,10 @@ public class Path {
 
     public static final String LINK_VIEW_CONTROLLER = "viewLinks.d";
 
+    public static final String DELETE_LINK_PAGE = "/WEB-INF/jsp/deleteLink.jsp";
+
+    public static final String DELETE_LINK_CONTROLLER = "deleteLink.d";
+
 
 
 

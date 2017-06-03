@@ -14,14 +14,14 @@ public class EncodingFilter implements Filter {
         encoding = filterConfig.getInitParameter("encoding");
     }
 
+
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         String requestEncoding = servletRequest.getCharacterEncoding();
-        if(encoding != null && !encoding.equalsIgnoreCase(requestEncoding)) {
+        if (encoding != null && !encoding.equalsIgnoreCase(requestEncoding)) {
             servletRequest.setCharacterEncoding(encoding);
             servletResponse.setCharacterEncoding(encoding);
         }
-        System.out.println(encoding);
         filterChain.doFilter(servletRequest, servletResponse);
     }
 

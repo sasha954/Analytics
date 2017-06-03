@@ -28,6 +28,7 @@ public class Params {
     public static final String ADD_LINK_SUCCESS = "addLinkSuccess";
     public static final String ADD_LINK_ERROR = "addLinkError";
     public static final String LINK_FIELDS = "linkFields";
+    public static final String WEB_SITE_ID = "webSiteId";
 
 
     //Session params

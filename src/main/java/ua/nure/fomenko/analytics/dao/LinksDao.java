@@ -15,4 +15,6 @@ public interface LinksDao extends GenericDao<Links> {
     public Links getLinkByUrl(String url);
 
     public List<Links> getLinksByWebSite(WebSite webSite);
+
+    public boolean deleteLinkByWebSite(WebSite webSite);
 }

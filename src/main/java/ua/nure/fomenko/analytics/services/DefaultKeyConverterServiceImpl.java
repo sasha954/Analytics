@@ -9,12 +9,12 @@ import java.util.Map;
 public class DefaultKeyConverterServiceImpl implements KeyConverterService {
 
     char[] chars = "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890-_".toCharArray();
-    public Map<Character, Integer> charsWithPosition = charToInt(chars);
-
+    public Map<Character, Integer> charsWithPosition = charToIntPosition(chars);
+    private final int ADDITIONAL_VALUE = 100000;
 
     @Override
     public String idToKey(int id) {
-        int n = 100000+id;
+        int n = ADDITIONAL_VALUE+id;
         StringBuilder builder = new StringBuilder();
         while (n!=0) {
             builder.append(chars[n%chars.length]);
@@ -31,9 +31,9 @@ public class DefaultKeyConverterServiceImpl implements KeyConverterService {
             int n = charsWithPosition.get(character);
             result = result * chars.length + n;
         }
-        return result-100000;
+        return result-ADDITIONAL_VALUE;
     }
-    private Map<Character, Integer> charToInt(char[] array) {
+    private Map<Character, Integer> charToIntPosition(char[] array) {
         Map<Character, Integer>map = new HashMap<>();
         for (int i = 0; i < array.length; i++){
             map.put(chars[i], i);

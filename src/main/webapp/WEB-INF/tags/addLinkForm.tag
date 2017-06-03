@@ -1,4 +1,3 @@
-<%@include file="/WEB-INF/jspf/directive/head.jspf" %>
 <%@include file="/WEB-INF/jspf/directive/taglib.jspf" %>
 <%@tag body-content="empty" language="java" pageEncoding="UTF-8" %>
 <div class="form-wrapper" style="width:250px; height:150px; background: red;">

@@ -41,11 +41,11 @@ public class SQLQueries {
 
     public static final String LINKS_GET_BY_WEBSITE = "select l.*, count(s.links_id) as countVisiters from links as l left outer join statistic as s on l.id=s.links_id WHERE l.WebSites_id=? group by l.url order by l.id asc";
 
-
-
     public static final String LINK_CREATE_NEW = "INSERT INTO links (url, name, WebSites_id) VALUES(?,?,?)";
 
     public static final String LINK_DELETE_BY_ID = "DELETE FROM links WHERE id=?";
+
+    public static final String LINK_DELETE_BY_WEB_SITE = "DELETE FROM links WHERE WebSites_id=?";
 
     //Visiters
 
@@ -63,6 +63,8 @@ public class SQLQueries {
     public static final String STATISTIC_CREATE_NEW = "INSERT INTO statistic(visiters_id, links_id) VALUES(?,?)";
 
     public static final String STATISTIC_GET_BY_LINK_ID = "SELECT * FROM statistic WHERE links_id=?";
+
+    public static final String STATISTIC_DELETE_BY_LINK_ID = "DELETE FROM statistic WHERE links_id=?";
 
     private SQLQueries() {
     }

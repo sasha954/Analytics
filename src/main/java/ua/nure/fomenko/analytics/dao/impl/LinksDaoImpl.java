@@ -92,6 +92,20 @@ public class LinksDaoImpl implements LinksDao {
     }
 
     @Override
+    public boolean deleteLinkByWebSite(WebSite webSite) {
+        Connection connection = ThreadLockHandler.getConnection();
+        int result = 0;
+        try (PreparedStatement statement = connection.prepareStatement(SQLQueries.LINK_DELETE_BY_WEB_SITE)){
+            statement.setInt(1,webSite.getId());
+            result = statement.executeUpdate();
+            return result > 0;
+        } catch (SQLException e) {
+            LOG.error(e);
+            throw new DBException();
+        }
+    }
+
+    @Override
     public boolean isExistLinkByUrl(String url) {
         Connection connection = ThreadLockHandler.getConnection();
         ResultSet resultSet = null;
@@ -147,6 +161,8 @@ public class LinksDaoImpl implements LinksDao {
             throw new DBException(message, e);
         }
     }
+
+
 
     private Links parseLinks(ResultSet resultSet) throws SQLException {
         Links link = new Links();

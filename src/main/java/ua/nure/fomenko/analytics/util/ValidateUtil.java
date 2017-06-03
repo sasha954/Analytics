@@ -78,11 +78,10 @@ public class ValidateUtil {
         if(!isValidateByRegex(linkDto.getUrl(), Patterns.URL_PATTERN)){
             errors.put(Params.LINK_URL, MessageKeys.INVALID_URL);
         }
-        if(!isValidateByRegex(linkDto.getName(), Patterns.NAME_PATTERN)){
+        if(!isValidateByRegex(linkDto.getName(), Patterns.LINK_NAME_PATTERN)){
             errors.put(Params.LINK_NAME, MessageKeys.INVALID_NAME);
         }
 
         return errors;
     }
-
 }

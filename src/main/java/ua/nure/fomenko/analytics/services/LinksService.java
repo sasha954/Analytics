@@ -17,6 +17,7 @@ public interface LinksService {
     public List<Links> getLinksByWebSite(WebSite webSite);
     public boolean deleteLink(Links links);
     public boolean isExistByUrl(String url);
+    public boolean deleteLinkByWebSite(WebSite webSite);
     public  Links getLinkFromDto(LinkDto linkDto);
 
 }

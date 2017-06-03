@@ -47,6 +47,7 @@ public class LinksViewController extends HttpServlet {
             WebSite webSite = webSiteService.getWebSiteById(webSiteId);
             List<Links> linksList = linksService.getLinksByWebSite(webSite);
             request.setAttribute(Params.REQUEST_LINK_LIST, linksList);
+            request.setAttribute(Params.WEB_SITE_ID, webSite.getId());
         }
     }
 }

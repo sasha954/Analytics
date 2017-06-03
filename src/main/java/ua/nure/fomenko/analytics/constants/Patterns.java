@@ -13,6 +13,8 @@ public class Patterns {
 
     public static final Pattern NAME_PATTERN = Pattern.compile("^[A-Za-zА-Яа-я0-9]{3,30}$");
 
+    public static final Pattern LINK_NAME_PATTERN = Pattern.compile("^[A-Za-zА-Яа-я0-9\\ ]{3,100}$");
+
     //public static final Pattern URL_PATTERN = Pattern.compile("^((https?|ftp)\\:\\/\\/)?([a-z0-9]{1})((\\.[a-z0-9-])|([a-z0-9-]))*\\.([a-z]{2,6})(\\/?)$");
     public static final Pattern URL_PATTERN = Pattern.compile("^(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$");
 }

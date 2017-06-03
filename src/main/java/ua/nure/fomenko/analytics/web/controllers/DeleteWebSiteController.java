@@ -3,6 +3,7 @@ package ua.nure.fomenko.analytics.web.controllers;
 import ua.nure.fomenko.analytics.constants.Params;
 import ua.nure.fomenko.analytics.constants.Path;
 import ua.nure.fomenko.analytics.db.entity.WebSite;
+import ua.nure.fomenko.analytics.services.LinksService;
 import ua.nure.fomenko.analytics.services.WebSiteService;
 
 import javax.servlet.ServletException;
@@ -19,10 +20,12 @@ import java.io.IOException;
 public class DeleteWebSiteController extends HttpServlet {
 
     private WebSiteService webSiteService;
+    private LinksService linksService;
 
     @Override
     public void init() throws ServletException {
         webSiteService = (WebSiteService)getServletContext().getAttribute(Params.WEB_SITE_SERVICE);
+        linksService = (LinksService) getServletContext().getAttribute(Params.LINKS_SERVICE);
     }
 
     @Override
@@ -41,6 +44,7 @@ public class DeleteWebSiteController extends HttpServlet {
         String path = getServletContext().getContextPath() + Path.SITE_LIST_CONTROLLER;
         WebSite webSite = webSiteService.getWebSiteById(webSiteId);
         if(webSite != null) {
+            linksService.deleteLinkByWebSite(webSite);
             webSiteService.deleteWebSite(webSite);
         }
         response.sendRedirect(path);

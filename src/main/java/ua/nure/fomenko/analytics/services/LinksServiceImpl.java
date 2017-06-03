@@ -84,6 +84,16 @@ public class LinksServiceImpl implements LinksService {
     }
 
     @Override
+    public boolean deleteLinkByWebSite(WebSite webSite) {
+        return transactionManager.execute(new Transaction<Boolean>() {
+            @Override
+            public Boolean execute() throws SQLException {
+                return linksDao.deleteLinkByWebSite(webSite);
+            }
+        });
+    }
+
+    @Override
     public Links getLinkFromDto(LinkDto linkDto) {
         Links link = new Links();
         link.setUrl(linkDto.getUrl());

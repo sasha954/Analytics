@@ -11,7 +11,7 @@
 <body>
     <my:siteListSidebar/>
     <div class="setting-links">
-        <a href="#" class="btn btn-default"><fmt:message key="linkList.setting"/></a>
+        <a href="deleteLink.d?siteId=${webSiteId}" class="btn btn-default"><fmt:message key="linkList.setting"/></a>
     </div>
     <my:linkList/>
     <my:addLinkForm/>

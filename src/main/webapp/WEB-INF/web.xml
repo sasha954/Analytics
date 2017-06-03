@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <display-name>CourseSystem</display-name>
+    <display-name>Web analytics</display-name>
     <description>MySQL</description>
     <resource-ref>
         <description>MySQL Connection Pool</description>
@@ -19,6 +19,18 @@
         <welcome-file>index.d</welcome-file>
     </welcome-file-list>
     <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>ua.nure.fomenko.analytics.web.filters.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
         <filter-name>LocaleFilter</filter-name>
         <filter-class>ua.nure.fomenko.analytics.web.filters.LocaleFilter</filter-class>
         <init-param>
@@ -30,24 +42,15 @@
         <filter-name>LocaleFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
-    <filter>
-        <filter-name>EncodingFilter</filter-name>
-        <filter-class>ua.nure.fomenko.analytics.web.filters.EncodingFilter</filter-class>
-        <init-param>
-            <param-name>encoding</param-name>
-            <param-value>utf-8</param-value>
-        </init-param>
-    </filter>
-    <filter-mapping>
-        <filter-name>EncodingFilter</filter-name>
-        <url-pattern>/*</url-pattern>
-    </filter-mapping>
+
+
     <filter>
         <filter-name>AccessFilter</filter-name>
         <filter-class>ua.nure.fomenko.analytics.web.filters.ControllerAccessFilter</filter-class>
         <init-param>
             <param-name>commons</param-name>
-            <param-value>/addLink.d /viewLinks.d /profile.d /addWebSite.d /logOut.d /siteList.d /deleteSite.d /editWebSite.d /sidebarList.d</param-value>
+            <param-value>/addLink.d /viewLinks.d /profile.d /addWebSite.d /logOut.d /siteList.d /deleteSite.d
+                /editWebSite.d /sidebarList.d /deleteLink.d</param-value>
         </init-param>
         <init-param>
             <param-name>out-of-control</param-name>
