@@ -2,6 +2,12 @@
     margin: 0;
     padding:0;
 }
+.float-left{
+    float: left;
+}
+.float-right{
+    float: right;
+}
 .popUpLogin{
     width: 270px;
     height: 150px;
@@ -14,4 +20,17 @@
     position: absolute;
     left: 0;
     right: 0;
+}
+
+.sidebar-list-title{
+    float: left;
+}
+.sidebar-list-setting{
+    float: right;
+}
+.setting-links{
+    height: 35px;
+}
+.setting-links>a {
+    margin: -15px 0 0 0;
 }

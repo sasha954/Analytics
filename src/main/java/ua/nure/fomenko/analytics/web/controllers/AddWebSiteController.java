@@ -69,9 +69,9 @@ public class AddWebSiteController extends HttpServlet {
     }
 
     private void addWebSiteSuccess(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String path = Path.SITE_LIST_CONTROLLER;
+        String path = Path.LINK_VIEW_CONTROLLER;
         LOG.trace("Forwarding to: " + path);
-        response.sendRedirect(request.getServletContext().getContextPath() + path);
+        response.sendRedirect(path);
     }
 
     private void addWebSiteErrors(Map<String, String> errors, HttpServletRequest request, HttpServletResponse response) throws IOException {

@@ -10,8 +10,16 @@
 </head>
 <body>
     <div class="container">
+
+                <my:header/>
+
         <div class="row">
-            <div class="col-lg-10 col-lg-offset-1">
+            <div class="row">
+                <div class="col-lg-3">
+                    <my:siteListSidebar/>
+                    <my:addLinkForm/>
+                </div>
+            <div class="col-lg-8 col-lg-offset-1">
                 <my:siteTableList/>
             </div>
         </div>

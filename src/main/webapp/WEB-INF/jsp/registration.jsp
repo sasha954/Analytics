@@ -7,7 +7,9 @@
     <%@include file="/WEB-INF/jspf/directive/head.jspf"%>
 </head>
 <body>
-<h1>Registration</h1>
-<my:registrationForm/>
+<div class="container">
+    <h1>Registration</h1>
+    <my:registrationForm/>
+</div>
 </body>
 </html>

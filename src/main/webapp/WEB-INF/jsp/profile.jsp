@@ -3,13 +3,22 @@
 <%@taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <html>
 <head>
-    <title>Title</title>
+    <c:set scope="page" var="pageTitle" value="profile.title"/>
+    <%@include file="/WEB-INF/jspf/directive/head.jspf"%>
 </head>
 <body>
-    <a href="${pageContext.request.contextPath}/logOut.d">logout</a>
-    <my:siteListSidebar/>
-    <h3>${user.email}</h3>
-    <h3>${user.firstName}</h3>
-    <h3>${user.lastName}</h3>
+    <div class="container">
+        <my:header/>
+        <a href="${pageContext.request.contextPath}/logOut.d">logout</a>
+            <div class="row">
+                <div class="col-lg-3">
+                    <my:siteListSidebar/>
+                    <my:addLinkForm/>
+                </div>
+        <h3>${user.email}</h3>
+        <h3>${user.firstName}</h3>
+        <h3>${user.lastName}</h3>
+            </div>
+    </div>
 </body>
 </html>

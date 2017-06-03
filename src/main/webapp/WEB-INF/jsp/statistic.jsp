@@ -11,6 +11,13 @@
     <title>Title</title>
 </head>
 <body>
-
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <my:siteListSidebar/>
+            <my:addLinkForm/>
+        </div>
+    </div>
+</div>
 </body>
 </html>

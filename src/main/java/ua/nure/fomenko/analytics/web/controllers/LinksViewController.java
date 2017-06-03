@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import ua.nure.fomenko.analytics.constants.Params;
 import ua.nure.fomenko.analytics.constants.Path;
 import ua.nure.fomenko.analytics.db.entity.Links;
+import ua.nure.fomenko.analytics.db.entity.User;
 import ua.nure.fomenko.analytics.db.entity.WebSite;
 import ua.nure.fomenko.analytics.services.LinksService;
 import ua.nure.fomenko.analytics.services.WebSiteService;
@@ -22,6 +23,8 @@ import java.util.List;
 @WebServlet(name = "LinksViewController", urlPatterns = "/viewLinks.d")
 public class LinksViewController extends HttpServlet {
     private static final Logger LOG = Logger.getLogger(LinksViewController.class);
+    private static final String USER = "user";
+
     private LinksService linksService;
     private WebSiteService webSiteService;
 
@@ -42,12 +45,14 @@ public class LinksViewController extends HttpServlet {
     }
 
     private void prepareRequestParam(HttpServletRequest request) {
-        if(request.getParameter("sid") != null) {
+        if (request.getParameter("sid") != null) {
             int webSiteId = Integer.parseInt(request.getParameter("sid"));
             WebSite webSite = webSiteService.getWebSiteById(webSiteId);
             List<Links> linksList = linksService.getLinksByWebSite(webSite);
             request.setAttribute(Params.REQUEST_LINK_LIST, linksList);
             request.setAttribute(Params.WEB_SITE_ID, webSite.getId());
         }
+        User user = (User) request.getSession().getAttribute(Params.SESSION_USER);
+        request.getServletContext().setAttribute(USER, user);
     }
 }
