@@ -4,14 +4,8 @@ import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 import ua.nure.fomenko.analytics.constants.Messages;
 import ua.nure.fomenko.analytics.constants.Params;
-import ua.nure.fomenko.analytics.dao.LinksDao;
-import ua.nure.fomenko.analytics.dao.UserDao;
-import ua.nure.fomenko.analytics.dao.VisitersDao;
-import ua.nure.fomenko.analytics.dao.WebSiteDao;
-import ua.nure.fomenko.analytics.dao.impl.LinksDaoImpl;
-import ua.nure.fomenko.analytics.dao.impl.UserDaoImpl;
-import ua.nure.fomenko.analytics.dao.impl.VisitersDaoImpl;
-import ua.nure.fomenko.analytics.dao.impl.WebSiteDaoImpl;
+import ua.nure.fomenko.analytics.dao.*;
+import ua.nure.fomenko.analytics.dao.impl.*;
 import ua.nure.fomenko.analytics.db.entity.Links;
 import ua.nure.fomenko.analytics.db.entity.User;
 import ua.nure.fomenko.analytics.exception.InitException;
@@ -55,18 +49,21 @@ public class ContextListener implements ServletContextListener{
         WebSiteDao webSiteDao = new WebSiteDaoImpl();
         LinksDao linksDao = new LinksDaoImpl();
         VisitersDao visitersDao = new VisitersDaoImpl();
+        StatisticDao statisticDao = new StatisticDaoImpl();
 
         UserService userService = new UserServiceImpl(userDao, transactionManager);
         WebSiteService webSiteService = new WebSiteServiceImpl(webSiteDao, transactionManager);
         LinksService linksService = new LinksServiceImpl(linksDao, transactionManager);
         VisitersService visitersService = new VisitersServiceImpl(visitersDao, transactionManager);
         KeyConverterService keyConverterService = new DefaultKeyConverterServiceImpl();
+        StatisticService statisticService = new StatisticServiceImpl(statisticDao, transactionManager);
 
         servletContext.setAttribute(Params.USER_SERVICE, userService);
         servletContext.setAttribute(Params.WEB_SITE_SERVICE, webSiteService);
         servletContext.setAttribute(Params.LINKS_SERVICE, linksService);
         servletContext.setAttribute(Params.VISITERS_SERVICE, visitersService);
         servletContext.setAttribute(Params.KEY_CONVERTER_SERVICE, keyConverterService);
+        servletContext.setAttribute(Params.STATISTIC_SERVICE, statisticService);
     }
 
     @Override

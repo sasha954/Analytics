@@ -37,4 +37,10 @@ public class Path {
 
 
 
+
+    //2ip API
+    public static final String TWO_IP_URL = "http://api.2ip.ua/geo.json?ip=";
+
+
+
 }

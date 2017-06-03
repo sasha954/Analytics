@@ -5,17 +5,17 @@ package ua.nure.fomenko.analytics.db.entity;
  */
 public class Visiters extends Entity {
     private String ip;
-    private String countryCode;
+    private String country_code;
     private String country;
-    private String countryRus;
+    private String country_rus;
     private String region;
-    private String regionRus;
+    private String region_rus;
     private String city;
-    private String cityRus;
+    private String city_rus;
     private String latitude;
     private String longitude;
-    private int zipCode;
-    private String timeZone;
+    private int zip_code;
+    private String time_zone;
 
     public String getIp() {
         return ip;
@@ -25,12 +25,12 @@ public class Visiters extends Entity {
         this.ip = ip;
     }
 
-    public String getCountryCode() {
-        return countryCode;
+    public String getCountry_code() {
+        return country_code;
     }
 
-    public void setCountryCode(String countryCode) {
-        this.countryCode = countryCode;
+    public void setCountry_code(String country_code) {
+        this.country_code = country_code;
     }
 
     public String getCountry() {
@@ -41,12 +41,12 @@ public class Visiters extends Entity {
         this.country = country;
     }
 
-    public String getCountryRus() {
-        return countryRus;
+    public String getCountry_rus() {
+        return country_rus;
     }
 
-    public void setCountryRus(String countryRus) {
-        this.countryRus = countryRus;
+    public void setCountry_rus(String country_rus) {
+        this.country_rus = country_rus;
     }
 
     public String getRegion() {
@@ -57,12 +57,12 @@ public class Visiters extends Entity {
         this.region = region;
     }
 
-    public String getRegionRus() {
-        return regionRus;
+    public String getRegion_rus() {
+        return region_rus;
     }
 
-    public void setRegionRus(String regionRus) {
-        this.regionRus = regionRus;
+    public void setRegion_rus(String region_rus) {
+        this.region_rus = region_rus;
     }
 
     public String getCity() {
@@ -73,12 +73,12 @@ public class Visiters extends Entity {
         this.city = city;
     }
 
-    public String getCityRus() {
-        return cityRus;
+    public String getCity_rus() {
+        return city_rus;
     }
 
-    public void setCityRus(String cityRus) {
-        this.cityRus = cityRus;
+    public void setCity_rus(String city_rus) {
+        this.city_rus = city_rus;
     }
 
     public String getLatitude() {
@@ -97,19 +97,38 @@ public class Visiters extends Entity {
         this.longitude = longitude;
     }
 
-    public int getZipCode() {
-        return zipCode;
+    public int getZip_code() {
+        return zip_code;
     }
 
-    public void setZipCode(int zipCode) {
-        this.zipCode = zipCode;
+    public void setZip_code(int zip_code) {
+        this.zip_code = zip_code;
     }
 
-    public String getTimeZone() {
-        return timeZone;
+    public String getTime_zone() {
+        return time_zone;
     }
 
-    public void setTimeZone(String timeZone) {
-        this.timeZone = timeZone;
+    public void setTime_zone(String time_zone) {
+        this.time_zone = time_zone;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        builder.append("Visiter=[")
+                .append("ip: ").append(ip).append(",\n")
+                .append("country code: ").append(country_code).append(",\n")
+                .append("country: ").append(country).append(",\n")
+                .append("country rus: ").append(country_rus).append(",\n")
+                .append("region: ").append(region).append(",\n")
+                .append("region rus: ").append(region_rus).append(",\n")
+                .append("city: ").append(city).append(",\n")
+                .append("city rus: ").append(city_rus).append(",\n")
+                .append("latitude: ").append(latitude).append(",\n")
+                .append("longitude: ").append(longitude).append(",\n")
+                .append("zip code: ").append(zip_code).append(",\n")
+                .append("time zone: ").append(time_zone).append("]");
+        return builder.toString();
     }
 }

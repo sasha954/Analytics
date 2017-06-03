@@ -48,17 +48,17 @@ public class VisitersDaoImpl implements VisitersDao {
         int resultId = 0;
         try (PreparedStatement preparedStatement = connection.prepareStatement(SQLQueries.VISITER_CREATE_NEW,
                 Statement.RETURN_GENERATED_KEYS)) {
-            preparedStatement.setString(1, entity.getCountryCode());
+            preparedStatement.setString(1, entity.getCountry_code());
             preparedStatement.setString(2, entity.getCountry());
-            preparedStatement.setString(3, entity.getCountryRus());
+            preparedStatement.setString(3, entity.getCountry_rus());
             preparedStatement.setString(4, entity.getRegion());
-            preparedStatement.setString(5, entity.getRegionRus());
+            preparedStatement.setString(5, entity.getRegion_rus());
             preparedStatement.setString(6, entity.getCity());
-            preparedStatement.setString(7, entity.getCityRus());
+            preparedStatement.setString(7, entity.getCity_rus());
             preparedStatement.setString(8, entity.getLatitude());
             preparedStatement.setString(9, entity.getLongitude());
-            preparedStatement.setInt(10, entity.getZipCode());
-            preparedStatement.setString(11, entity.getTimeZone());
+            preparedStatement.setInt(10, entity.getZip_code());
+            preparedStatement.setString(11, entity.getTime_zone());
             preparedStatement.setString(12, entity.getIp());
             preparedStatement.executeUpdate();
             resultSet = preparedStatement.getGeneratedKeys();
@@ -157,17 +157,18 @@ public class VisitersDaoImpl implements VisitersDao {
 
     private Visiters parseVisiter(ResultSet resultSet) throws SQLException {
         Visiters visiter = new Visiters();
+        visiter.setId(resultSet.getInt(Params.ID));
         visiter.setCity(resultSet.getString(Params.VISITERS_CITY));
-        visiter.setCityRus(resultSet.getString(Params.VISITERS_CITY_RUS));
-        visiter.setCountryCode(resultSet.getString(Params.VISITERS_COUNTRY_CODE));
+        visiter.setCity_rus(resultSet.getString(Params.VISITERS_CITY_RUS));
+        visiter.setCountry_code(resultSet.getString(Params.VISITERS_COUNTRY_CODE));
         visiter.setCountry(resultSet.getString(Params.VISITERS_COUNTRY));
-        visiter.setCountryRus(resultSet.getString(Params.VISITERS_COUNTRY_RUS));
+        visiter.setCountry_rus(resultSet.getString(Params.VISITERS_COUNTRY_RUS));
         visiter.setRegion(resultSet.getString(Params.VISITERS_REGION));
-        visiter.setRegionRus(resultSet.getString(Params.VISITERS_REGION_RUS));
+        visiter.setRegion_rus(resultSet.getString(Params.VISITERS_REGION_RUS));
         visiter.setLatitude(resultSet.getString(Params.VISITERS_LATITUDE));
         visiter.setLongitude(resultSet.getString(Params.VISITERS_LONGITUDE));
-        visiter.setZipCode(resultSet.getInt(Params.VISITERS_ZIP_CODE));
-        visiter.setTimeZone(resultSet.getString(Params.VISITERS_TIME_ZONE));
+        visiter.setZip_code(resultSet.getInt(Params.VISITERS_ZIP_CODE));
+        visiter.setTime_zone(resultSet.getString(Params.VISITERS_TIME_ZONE));
         visiter.setIp(resultSet.getString(Params.VISITERS_IP));
         return visiter;
     }
