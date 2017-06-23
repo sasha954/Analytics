@@ -17,15 +17,12 @@
                 <my:addLinkForm/>
             </div>
             <div class="col-lg-8">
-                <div class="setting-links">
-                    <a href="deleteLink.d?siteId=${webSiteId}" class="btn btn-default float-right"><fmt:message
-                            key="linkList.setting"/></a>
-                    <div class="clearfix"></div>
-                </div>
+
                 <my:linkList/>
             </div>
         </div>
     </div>
+    <%@ include file="/WEB-INF/jspf/directive/footer.jspf"%>
     </body>
     </html>
 </fmt:bundle>

@@ -3,14 +3,13 @@
 <%@ tag body-content="empty" language="java" pageEncoding="UTF-8" %>
 <fmt:bundle basename="i18n">
 
-        <div class="sidebar-list-wrapper">
-            <div class="sidebar-list-header">
-                <h3 class="sidebar-list-title"><fmt:message key="siteListSidebar.title"/>(<c:out value="${webSitesCount}"/>) </h3>
-                <div class="sidebar-list-setting"><h2><a class="glyphicon glyphicon-asterisk
-"></a> </h2></div>
+        <div class="sidebar-list-wrapper panel">
+            <div class="sidebar-list-header panel-heading">
+                <h4 class="sidebar-list-title"><fmt:message key="siteListSidebar.title"/>(<c:out value="${webSitesCount}"/>) </h4>
+                <div class="sidebar-list-setting"><h4><a href="siteList.d" class="glyphicon glyphicon-asterisk"></a> </h4></div>
                 <div class="clearfix"></div>
             </div>
-            <div class="sidebar-list">
+            <div class="sidebar-list panel-body">
                 <ul>
                     <c:if test="${not empty reqSiteList}">
                         <c:forEach items="${reqSiteList}" var="webSite">

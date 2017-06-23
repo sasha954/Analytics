@@ -8,6 +8,4 @@ import java.util.Map;
 public interface KeyConverterService {
     String idToKey(int id);
     int keyToId(String key);
-
-
 }

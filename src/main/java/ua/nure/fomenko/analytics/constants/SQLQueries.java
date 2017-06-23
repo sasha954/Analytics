@@ -3,7 +3,7 @@ package ua.nure.fomenko.analytics.constants;
 /**
  * Created by fomenko on 10.03.2017.
  */
-public class SQLQueries {
+public class    SQLQueries {
 
     //user
     public static final String USER_GET_BY_ID = "SELECT * FROM users WHERE id=?";
@@ -62,7 +62,8 @@ public class SQLQueries {
 
     public static final String STATISTIC_CREATE_NEW = "INSERT INTO statistic(visiters_id, links_id) VALUES(?,?)";
 
-    public static final String STATISTIC_GET_BY_LINK_ID = "SELECT * FROM statistic WHERE links_id=?";
+    public static final String STATISTIC_GET_BY_LINK_ID = "SELECT v.*, count(v.id) as countVisitors from visiters as v left outer join statistic as s on s.visiters_id = v.id where s.links_id=? group by v.country";
+    //public static final String STATISTIC_GET_BY_LINK_ID = "select * from statistic WHERE links_id=?";
 
     public static final String STATISTIC_DELETE_BY_LINK_ID = "DELETE FROM statistic WHERE links_id=?";
 

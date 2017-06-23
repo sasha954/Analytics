@@ -1,6 +1,10 @@
 <%@include file="/WEB-INF/jspf/directive/taglib.jspf" %>
 <%@tag body-content="empty" language="java" pageEncoding="UTF-8" %>
-<div class="form-wrapper" style="width:250px; height:150px; background: red;">
+<div class="panel form-wrapper">
+<div class="panel-heading">
+    Добавить ссылку   <a href="javascript:void(0)" id="closeAddForm">x</a>
+</div>
+<div class="panel-body">
     <form action="addLink.d" method="post">
         <div class="form-group">
             <input type="text" class="form-control" name="url" placeholder="URL">
@@ -13,7 +17,8 @@
         </div>
         <input type="hidden" name="site-id" value="${pageContext.request.getParameter("sid")}">
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">Добавить</button>
         </div>
     </form>
+</div>
 </div>

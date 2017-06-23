@@ -17,6 +17,7 @@ import java.sql.*;
 public class UserDaoImpl implements UserDao {
     private static final Logger LOG = Logger.getLogger(UserDaoImpl.class);
 
+    @Override
     public User get(int id){
         Connection connection = ThreadLockHandler.getConnection();
         ResultSet resultSet = null;

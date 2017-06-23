@@ -5,6 +5,7 @@ import ua.nure.fomenko.analytics.constants.Messages;
 import ua.nure.fomenko.analytics.constants.Params;
 import ua.nure.fomenko.analytics.constants.SQLQueries;
 import ua.nure.fomenko.analytics.dao.VisitersDao;
+import ua.nure.fomenko.analytics.db.entity.Bean.Statistic;
 import ua.nure.fomenko.analytics.db.entity.Visiters;
 import ua.nure.fomenko.analytics.exception.DBException;
 import ua.nure.fomenko.analytics.transaction.ThreadLockHandler;
@@ -93,6 +94,25 @@ public class VisitersDaoImpl implements VisitersDao {
             LOG.error(message, e);
             throw new DBException(message, e);
 
+        }
+    }
+
+    @Override
+    public List<Visiters> getVisitersByStatistic(List<Statistic> statistics) {
+        Connection connection = ThreadLockHandler.getConnection();
+        ResultSet resultSet = null;
+        List<Visiters> visiters = new ArrayList<>();
+        try (PreparedStatement preparedStatement = connection.prepareStatement(SQLQueries.VISITER_GET_BY_ID)){
+            for(Statistic statistic : statistics) {
+                preparedStatement.setInt(1, statistic.getVisiters().getId());
+                resultSet = preparedStatement.executeQuery();
+                if(resultSet.next()) {
+                    visiters.add(parseVisiter(resultSet));
+                }
+            }
+            return visiters;
+        }catch (SQLException e) {
+            throw new DBException();
         }
     }
 

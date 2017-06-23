@@ -1,6 +1,7 @@
 package ua.nure.fomenko.analytics.services;
 
 import ua.nure.fomenko.analytics.dao.VisitersDao;
+import ua.nure.fomenko.analytics.db.entity.Bean.Statistic;
 import ua.nure.fomenko.analytics.db.entity.Visiters;
 import ua.nure.fomenko.analytics.transaction.Transaction;
 import ua.nure.fomenko.analytics.transaction.TransactionManager;
@@ -47,6 +48,16 @@ public class VisitersServiceImpl implements VisitersService {
             @Override
             public List<Visiters> execute() throws SQLException {
                 return visitersDao.getVisitersByCountryAndLinks(country);
+            }
+        });
+    }
+
+    @Override
+    public List<Visiters> getVisitersByStatistics(List<Statistic> statistics) {
+        return transactionManager.execute(new Transaction<List<Visiters>>() {
+            @Override
+            public List<Visiters> execute() throws SQLException {
+               return visitersDao.getVisitersByStatistic(statistics);
             }
         });
     }

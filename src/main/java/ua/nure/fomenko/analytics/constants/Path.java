@@ -39,6 +39,10 @@ public class Path {
 
     public static final String DELETE_LINK_CONTROLLER = "deleteLink.d";
 
+    public static final String STATISTIC_PAGE = "/WEB-INF/jsp/statistic.jsp";
+
+    public static final String STATISTIC_VIEW = "statistic.d";
+
 
 
 

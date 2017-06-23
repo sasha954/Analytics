@@ -2,18 +2,17 @@
  * Created by fomenko on 13.03.2017.
  */
 
-function loginPopUp() {
-    var logBtn = document.getElementById('login');
+$(document).ready(function () {
 
+    $("#addLink").on("click", function () {
+       $(".form-wrapper").toggleClass("visible");
+    });
 
+    $("#closeAddForm").on("click", function () {
+        $(".form-wrapper").removeClass("visible");
+    })
 
-    logBtn.onclick = function (e) {
-        e.preventDefault();
-    }
-}
-
-
-
-window.onload = function () {
-    loginPopUp();
-}
+    $('tr[data-href]').dblclick(function() {
+        document.location = $(this).data('href');
+    });
+});

@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Registration</h1>
+    <my:header/>
     <my:registrationForm/>
 </div>
 </body>

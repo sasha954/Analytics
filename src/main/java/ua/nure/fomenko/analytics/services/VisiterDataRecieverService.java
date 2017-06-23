@@ -17,13 +17,22 @@ import java.io.InputStreamReader;
  */
 public class VisiterDataRecieverService {
 
-
-
+    /**
+     * @param json String
+     * @return Visitor object, that was parsed from json string
+     * @throws IOException If an I/O error occurs
+     */
     private Visiters jsonToJavaObjectConverter(String json) throws IOException{
         Visiters visiter = new ObjectMapper().readValue(json, Visiters.class);
         return visiter;
     }
 
+    /**
+     * @param ip String
+     * @return Visitor object, that was got from 2ip.ua API
+     * @see ua.nure.fomenko.analytics.services.VisiterDataRecieverService#jsonToJavaObjectConverter(String)
+     * @throws IOException If an I/O error occurs
+     */
     public Visiters getVisiterDataFromAPI(String ip) throws IOException{
 
         HttpClient client = new DefaultHttpClient();
@@ -36,7 +45,4 @@ public class VisiterDataRecieverService {
 
         return visiter;
     }
-
-
-
 }

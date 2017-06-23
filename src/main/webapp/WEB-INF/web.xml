@@ -50,7 +50,7 @@
         <init-param>
             <param-name>commons</param-name>
             <param-value>/addLink.d /viewLinks.d /profile.d /addWebSite.d /logOut.d /siteList.d /deleteSite.d
-                /editWebSite.d /sidebarList.d /deleteLink.d</param-value>
+                /editWebSite.d /sidebarList.d /deleteLink.d /statistic.d</param-value>
         </init-param>
         <init-param>
             <param-name>out-of-control</param-name>
@@ -68,7 +68,7 @@
     </filter>
     <filter-mapping>
         <filter-name>CorsFilter</filter-name>
-        <url-pattern>*</url-pattern>
+        <url-pattern>/addVisiter.d</url-pattern>
     </filter-mapping>
     <session-config>
         <session-timeout>30</session-timeout>

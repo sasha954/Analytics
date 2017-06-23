@@ -1,7 +1,6 @@
 package ua.nure.fomenko.analytics.dao.impl;
 
 import org.apache.log4j.Logger;
-import sun.plugin2.message.Message;
 import ua.nure.fomenko.analytics.constants.Messages;
 import ua.nure.fomenko.analytics.constants.Params;
 import ua.nure.fomenko.analytics.constants.SQLQueries;

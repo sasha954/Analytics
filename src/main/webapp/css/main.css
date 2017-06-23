@@ -1,18 +1,26 @@
 *,body,html{
     margin: 0;
     padding:0;
+
 }
+body{ background: url("../img/bg.jpg") 100% no-repeat;}
 .float-left{
     float: left;
 }
 .float-right{
     float: right;
 }
-.popUpLogin{
-    width: 270px;
-    height: 150px;
-    position: relative;
+.main-menu {
+    float: right;
 }
+.popUpLogin{
+    width: 310px;
+    height: 230px;
+    position: absolute;
+    right: 60px;
+    top: 95px;
+}
+
 .form-btn{
     margin-left: auto;
     margin-right: auto;
@@ -29,8 +37,113 @@
     float: right;
 }
 .setting-links{
-    height: 35px;
+    height: 42px;
+    margin: 18px 0 0 0;
+    position: relative;
 }
 .setting-links>a {
-    margin: -15px 0 0 0;
+    margin: -6px 0 0 0;
+}
+header.main-header {
+    background: rgba(160, 6, 162, 0.4);
+    color: #fff;
+    padding: 1px 130px 0;
+    margin: 0 -113px;
+}
+.form-wrapper {
+    display: none;
+    width: 263px;
+    position: absolute;
+    left: 510px;
+    top: 90px;
+    background: rgba(255, 255, 255, 1) !important;
+    z-index: 9999;
+}
+ul.navigation-list>li {
+    display: inline-block;
+    margin: 0 5px;
+}
+ul.navigation-list>li>a {
+    color: #fff;
+}
+nav.navigation-bar {
+
+    position: relative;
+    top: 20px;
+    font-size: 16px;
+}
+.logo>h3{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidebar-list-title{
+    margin: 0;
+}
+.sidebar-list-setting > h4{
+    margin: 0;
+}
+.sidebar-list-setting > h4 > a{
+    color: #fff;
+}
+.sidebar-list-wrapper{
+    margin-top: 30px;
+}
+.sidebar-list ul {
+    list-style: none;
+}
+.sidebar-list a {
+    color: #573571;
+}
+.panel {
+    background: rgba(255,255,255,0.4);
+}
+.panel-heading {
+    margin: -1px;
+    color: #fff;
+    background-color: rgba(160, 6, 162, 0.4);
+    border-color: rgba(160, 6, 162, 0.4);
+}
+hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.links-list{
+    margin-top: 28px;
+    padding-right: 1px;
+}
+.form_wrapper{
+    width: 85%;
+    margin: 15px auto;
+}
+.reg-block {
+    position: relative;
+    top: 45px;
+}
+.reg-form{
+    width: 500px;
+    margin: 50px auto;
+}
+.addWebSiteForm{
+    margin-top: 30px;
+    margin-left: -40px;
+    margin-right: 70px;
+}
+
+.visible{
+    display: block;
+}
+#addLink{
+    position: absolute;
+    left: 20px;
+    bottom: 2px;
+}
+#closeAddForm{
+    position: absolute;
+    right:20px;
+    color: #fff;
+}
+.links-list tr:hover,.links-list tr td:hover {
+    cursor: pointer;
 }

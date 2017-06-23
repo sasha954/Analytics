@@ -1,5 +1,6 @@
 package ua.nure.fomenko.analytics.dao;
 
+import ua.nure.fomenko.analytics.db.entity.Bean.Statistic;
 import ua.nure.fomenko.analytics.db.entity.Visiters;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 public interface VisitersDao extends GenericDao<Visiters> {
 
     public List<Visiters> getVisitersByCountryAndLinks(String country);
+    public List<Visiters> getVisitersByStatistic(List<Statistic> statistics);
     public boolean isExistByIp(String ip);
     public Visiters getVisiterByIp(String ip);
 
